@@ -1,0 +1,21 @@
+<div class="example-container">
+
+    <mat-toolbar color="primary" class="mat-elevation-z4">
+        <span><mat-icon>home</mat-icon></span>
+
+        <span>ボドゲチェックインツール</span>
+
+        <button mat-icon-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="button-row" fxShow="false" fxShow.gt-sm>
+            <button class="mat-elevation-z3" mat-raised-button color="accent" routerLink="top">Top</button>
+            <button mat-raised-button color="accent" routerLink="browse">Browse</button>
+        </div>
+        <mat-menu #menu="matMenu" >
+            <button mat-menu-item routerLink="top">top</button>
+            <button mat-menu-item routerLink="browse">browse</button>
+        </mat-menu>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</div>
