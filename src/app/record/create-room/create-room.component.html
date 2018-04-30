@@ -1,3 +1,34 @@
 <p>
-  create-room works!
+    ルームを作成する。
 </p>
+<div>
+    {{myForm.value | json}}
+    {{myForm.status | json}}
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="center">
+    <form [formGroup]="myForm" (submit)="submitItem(myForm)">
+        <mat-card class="mat-elevation-z3">
+            <mat-card-header>
+                <mat-card-title>ルームを作成する</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout="column">
+                    <mat-form-field>
+                        <input matInput placeholder="ボードゲーム名" required formControlName="title">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="number" matInput placeholder="参加人数" formControlName="participants">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <textarea matInput placeholder="備考" formControlName="remarks"></textarea>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent" >作成</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

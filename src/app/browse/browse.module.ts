@@ -6,10 +6,7 @@ import { BrowseComponent } from './browse.component';
 import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: BrowseComponent
-  }
+  { path: '', component: BrowseComponent}
 ];
 
 @NgModule({

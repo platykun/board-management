@@ -3,14 +3,21 @@
 
 <mat-list>
     <h3 mat-subheader>記録をつける</h3>
-    <a mat-button>
+    <a mat-button routerLink="../browse">
+        <mat-list-item>
+            <mat-icon mat-list-icon>folder</mat-icon>
+            <h4 mat-line>記録トップ</h4>
+            <p mat-line>記録作成画面のトップ</p>
+        </mat-list-item>
+    </a>
+    <a mat-button routerLink="../browse">
         <mat-list-item>
             <mat-icon mat-list-icon>folder</mat-icon>
             <h4 mat-line>ルーム作成</h4>
             <p mat-line>ルームを作成し、遊ぶボードゲームを選びます</p>
         </mat-list-item>
     </a>
-    <a mat-button>
+    <a mat-button routerLink="../browse">
         <mat-list-item>
             <mat-icon mat-list-icon>folder</mat-icon>
             <h4 mat-line>ルームに参加</h4>

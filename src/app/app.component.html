@@ -10,10 +10,12 @@
         </button>
         <div class="button-row" fxShow="false" fxShow.gt-sm>
             <button class="mat-elevation-z3" mat-raised-button color="accent" routerLink="top">Top</button>
-            <button mat-raised-button color="accent" routerLink="browse">Browse</button>
+            <button class="mat-elevation-z3" mat-raised-button color="accent" routerLink="record">Record</button>
+            <button class="mat-elevation-z3" mat-raised-button color="accent" routerLink="browse">Browse</button>
         </div>
         <mat-menu #menu="matMenu" >
             <button mat-menu-item routerLink="top">top</button>
+            <button mat-menu-item routerLink="record">record</button>
             <button mat-menu-item routerLink="browse">browse</button>
         </mat-menu>
     </mat-toolbar>

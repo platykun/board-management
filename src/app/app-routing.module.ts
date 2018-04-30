@@ -8,5 +8,6 @@ export const appRoutes: Routes = [
   { path: 'top', component: TopComponent},
   { path: 'home', component: HomeComponent},
   { path: 'browse', loadChildren: './browse/browse.module#BrowseModule'},
+  { path: 'record', loadChildren: './record/record.module#RecordModule'},
   { path: '**', loadChildren: './browse/browse.module#BrowseModule' }
 ];
