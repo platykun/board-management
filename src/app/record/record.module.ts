@@ -18,6 +18,8 @@ import {
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {HttpClientService} from '../service/component/http-client.service';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
   { path: '', component: RecordComponent},
@@ -30,6 +32,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    HttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
@@ -51,6 +54,11 @@ const routes: Routes = [
     JoinRoomComponent,
     ResultComponent,
     CheckinComponent
+  ],
+  providers: [
+    HttpClient,
+    HttpClientService
   ]
+
 })
 export class RecordModule { }
