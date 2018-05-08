@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router'
 import {HttpClientService} from '../../service/component/http-client.service';
-import {SampleBean} from '../../service/bean/SampleBean';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
-
-export class BoardGame {
-  constructor(public title: string) { }
-}
-
+import {SampleBean} from '../../service/bean/sample.bean';
 
 @Component({
   selector: 'app-create-room',
@@ -18,16 +12,12 @@ export class BoardGame {
 export class CreateRoomComponent implements OnInit {
   myForm: FormGroup;
 
-  sampleBean: SampleBean;
-  baseUrl = 'http://localhost:8080';
+  sampleBean : SampleBean;
 
-  constructor(public fb: FormBuilder,private router: Router, private http:HttpClient) {
-
-    this.http.get<SampleBean>(this.baseUrl)
-      .subscribe(re => {
-        this.sampleBean = re;
-        });
-
+  constructor(public fb: FormBuilder,private router: Router, private client:HttpClientService) {
+    client.sendGetRequest('/hoge').subscribe(re =>
+        this.sampleBean = re
+      );
     this.createForm();
   }
 
@@ -57,8 +47,6 @@ export class CreateRoomComponent implements OnInit {
   submitItem(_form: FormGroup) {
     if(_form.status == 'VALID') {
       // TODO: 登録処理を行うserviceクラスを呼ぶ。
-
-      // this.sampleBean = this.httpClient.sendGetRequest();
 
       console.log(this.sampleBean);
 
