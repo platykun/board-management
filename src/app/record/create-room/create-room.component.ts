@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router'
 import {HttpClientService} from '../../service/component/http-client.service';
 import {SampleBean} from '../../service/bean/sample.bean';
+import {RoomDomain} from '../../service/domain/room.domain';
+import {RoomListDomain} from '../../service/domain/room-list.domain';
 
 @Component({
   selector: 'app-create-room',
@@ -11,13 +13,19 @@ import {SampleBean} from '../../service/bean/sample.bean';
 })
 export class CreateRoomComponent implements OnInit {
   myForm: FormGroup;
-
   sampleBean : SampleBean;
 
+  rooms : RoomDomain[];
+
   constructor(public fb: FormBuilder,private router: Router, private client:HttpClientService) {
-    client.sendGetRequest('/hoge').subscribe(re =>
-        this.sampleBean = re
-      );
+    var page = 0;
+
+    this.rooms = new RoomListDomain(page).findRoomList(client);
+    console.log("constructor called");
+    console.log(this.rooms);
+    // client.sendGetRequest('/hoge').subscribe(re =>
+    //     this.sampleBean = re
+    //   );
     this.createForm();
   }
 
